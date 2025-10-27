@@ -112,7 +112,7 @@ Line Coverage → percentage of code lines executed at least once
 
 Branch Coverage → percentage of conditional branches (if/else) executed
 
-2. UI Testing & Code Coverage
+⚙️ UI Testing & Code Coverage
 Frameworks/Tools:
 Jest + Testing Library + JSDOM (in tests/Todo.Frontend.Tests)
 
