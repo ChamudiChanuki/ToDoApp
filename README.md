@@ -52,6 +52,7 @@ Stop & clean up/:
 docker compose down
 
 🧪 Testing
+
 ⚙️ API Testing & Code Coverage
 
 This project includes unit and integration tests for the Todo API, built using:
