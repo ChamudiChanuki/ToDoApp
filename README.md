@@ -15,38 +15,9 @@ Everything runs via Docker Compose (DB, API, UI). Includes backend (xUnit) and f
 
 
 🗂 Project Structure
-todo-app/
-├─ backend/
-│  └─ Todo.Api/
-│     ├─ Controllers/
-│     ├─ Models/ (TaskItem, DTOs)
-│     ├─ Services/ (TaskService)
-│     ├─ Data/ (AppDbContext)
-│     ├─ Program.cs (contains: public partial class Program { })
-│     └─ Dockerfile
-│
-├─ tests/
-│  ├─ Todo.Api.Tests/            # xUnit tests (+ optional SqliteAppFactory)
-│  └─ Todo.Frontend.Tests/       # Jest + RTL (isolated Node project)
-│     ├─ App.test.jsx
-│     ├─ DateRender.test.jsx
-│     ├─ __mocks__/api.mock.js
-│     ├─ jest.config.cjs
-│     └─ setupTests.js
-│
-├─ frontend/
-│  ├─ src/
-│  │  ├─ App.jsx
-│  │  ├─ api.js
-│  │  └─ styles.css
-│  └─ Dockerfile
-│
-├─ db/
-│  └─ init/
-│     └─ 001_create_task.sql
-│
-├─ docker-compose.yml
-└─ README.md
+
+<img width="696" height="614" alt="image" src="https://github.com/user-attachments/assets/fd4ea927-8401-4c3c-88a5-d3e54e92e3ae" />
+
 
 
 
@@ -67,7 +38,7 @@ Prereqs: Docker Desktop + Docker Compose.
 
 From the repository root:
 
-# build + start all services (db, api, frontend)
+build + start all services (db, api, frontend):
 docker compose up --build
 
 URLs:
@@ -134,3 +105,7 @@ Branch Coverage = both sides of if/else conditions executed
 Coverage data is stored automatically under tests/Todo.Api.Tests/TestResults/
 
 To increase branch coverage, add test cases for all alternate paths (e.g., invalid input, not-found scenarios).
+
+<img width="1337" height="678" alt="image" src="https://github.com/user-attachments/assets/35bb53fc-5c34-42fa-ad75-175177f661bd" />
+
+
