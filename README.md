@@ -52,52 +52,54 @@ Stop & clean up/:
 docker compose down
 
 🧪 Testing
+⚙️ API Testing & Code Coverage
 
-1. API Testing & Code Coverage
+This project includes unit and integration tests for the Todo API, built using:
 
-This project includes unit, integration, and controller tests for the Todo API using xUnit, FluentAssertions, and Moq.
+xUnit — testing framework
+
+FluentAssertions — expressive assertions
 
 🔧 Test Types
 
-Unit Tests — verify service-layer logic (TaskServiceTests)
+Unit Tests — validate service-layer logic (TaskServiceTests)
 
-Integration Tests — verify full API behavior using in-memory SQLite (TasksControllerTests under Integration/)
+Integration Tests — test full API behavior using in-memory SQLite (TasksControllerTests under Integration/)
 
 ▶️ Running Tests with Code Coverage
-
-Run all tests and collect coverage
-
+1️⃣ Run all tests and collect coverage
 dotnet test tests/Todo.Api.Tests/Todo.Api.Tests.csproj --configuration Release --collect:"XPlat Code Coverage"
 
 
 Builds the test project in Release mode
 
-Executes all xUnit tests (unit, integration, controller)
+Executes all xUnit tests (unit, integration)
 
-Collects coverage data in Cobertura XML format inside TestResults/
+Collects coverage data in Cobertura XML format under TestResults/
 
-Install the ReportGenerator tool
-
+2️⃣ Install the ReportGenerator tool
 dotnet tool update -g dotnet-reportgenerator-globaltool
 
 
-Installs (or updates) the global report generator
+Installs (or updates) the ReportGenerator tool
 
 Converts raw coverage results into human-readable HTML reports
 
-Generate the HTML coverage report
-
-reportgenerator -reports:"tests/**/TestResults/**/coverage.cobertura.xml" -targetdir:"coverage" -reporttypes:Html;HtmlSummary
+3️⃣ Generate the HTML coverage report
+reportgenerator -reports:"tests//TestResults//coverage.cobertura.xml" -targetdir:"coverage" -reporttypes:Html;HtmlSummary
 
 
 Reads coverage results from all test projects under tests/
 
-Outputs reports to a folder named coverage/
+Outputs reports into a folder named coverage/
 
-Generates both detailed (Html) and summary (HtmlSummary) views
+Generates both:
 
-Open the coverage report
+Detailed HTML Report (Html)
 
+Summary Report (HtmlSummary)
+
+4️⃣ Open the coverage report
 .\coverage\index.html
 
 
@@ -105,7 +107,7 @@ Opens a visual coverage summary in your browser
 
 📊 Notes
 
-Line Coverage → percentage of lines executed at least once
+Line Coverage → percentage of code lines executed at least once
 
 Branch Coverage → percentage of conditional branches (if/else) executed
 
