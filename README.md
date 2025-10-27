@@ -113,6 +113,11 @@ Line Coverage → percentage of code lines executed at least once
 Branch Coverage → percentage of conditional branches (if/else) executed
 
 2. UI Testing & Code Coverage
+Frameworks/Tools:
+Jest + Testing Library + JSDOM (in tests/Todo.Frontend.Tests)
+
+Open coverage report:
+Windows: start .\coverage\index.html
 
 #UI view 
 <img width="1337" height="678" alt="image" src="https://github.com/user-attachments/assets/35bb53fc-5c34-42fa-ad75-175177f661bd" />
