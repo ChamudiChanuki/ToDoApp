@@ -15,7 +15,6 @@ Everything runs via Docker Compose (DB, API, UI). Includes backend (xUnit) and f
 
 
 🗂 Project Structure
-
 todo-app/
 ├─ backend/
 │  └─ Todo.Api/
@@ -23,12 +22,12 @@ todo-app/
 │     ├─ Models/ (TaskItem, DTOs)
 │     ├─ Services/ (TaskService)
 │     ├─ Data/ (AppDbContext)
-│     ├─ Program.cs 
+│     ├─ Program.cs (contains: public partial class Program { })
 │     └─ Dockerfile
 │
 ├─ tests/
-│  ├─ Todo.Api.Tests/            # xUnit tests 
-│  └─ Todo.Frontend.Tests/       # Jest 
+│  ├─ Todo.Api.Tests/            # xUnit tests (+ optional SqliteAppFactory)
+│  └─ Todo.Frontend.Tests/       # Jest + RTL (isolated Node project)
 │     ├─ App.test.jsx
 │     ├─ DateRender.test.jsx
 │     ├─ __mocks__/api.mock.js
@@ -48,6 +47,8 @@ todo-app/
 │
 ├─ docker-compose.yml
 └─ README.md
+
+
 
 🗃️ Database Schema
 
