@@ -53,7 +53,7 @@ docker compose down
 
 🧪 Testing
 
-API Testing & Code Coverage
+1. API Testing & Code Coverage
 
 This project includes unit, integration, and controller tests for the Todo API using xUnit, FluentAssertions, and Moq.
 
@@ -109,6 +109,9 @@ Line Coverage → percentage of lines executed at least once
 
 Branch Coverage → percentage of conditional branches (if/else) executed
 
+2. UI Testing & Code Coverage
+
+#UI view 
 <img width="1337" height="678" alt="image" src="https://github.com/user-attachments/assets/35bb53fc-5c34-42fa-ad75-175177f661bd" />
 
 
