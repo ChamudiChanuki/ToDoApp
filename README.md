@@ -55,56 +55,59 @@ docker compose down
 
 API Testing & Code Coverage
 
-This project uses xUnit for testing, FluentAssertions for readable assertions, and ReportGenerator for code-coverage reports.
+This project includes unit, integration, and controller tests for the Todo API using xUnit, FluentAssertions, and Moq.
+
+🔧 Test Types
+
+Unit Tests — verify service-layer logic (TaskServiceTests)
+
+Integration Tests — verify full API behavior using in-memory SQLite (TasksControllerTests under Integration/)
 
 ▶️ Running Tests with Code Coverage
 
-1️⃣ Run all tests and collect coverage
+Run all tests and collect coverage
+
 dotnet test tests/Todo.Api.Tests/Todo.Api.Tests.csproj --configuration Release --collect:"XPlat Code Coverage"
 
-This command:
 
 Builds the test project in Release mode
 
-Runs all xUnit tests
+Executes all xUnit tests (unit, integration, controller)
 
-Collects coverage data in Cobertura XML format (saved under TestResults)
+Collects coverage data in Cobertura XML format inside TestResults/
 
-2️⃣ Install the report generator tool
+Install the ReportGenerator tool
+
 dotnet tool update -g dotnet-reportgenerator-globaltool
 
 
-This installs (or updates) the global ReportGenerator tool that converts the raw coverage data into human-readable HTML reports.
+Installs (or updates) the global report generator
 
-3️⃣ Generate the HTML report
-reportgenerator -reports:"tests/*/TestResults/*/coverage.cobertura.xml" -targetdir:"coverage" -reporttypes:Html;HtmlSummary
+Converts raw coverage results into human-readable HTML reports
 
-This command:
+Generate the HTML coverage report
 
-Reads coverage results from any test projects under tests/
+reportgenerator -reports:"tests/**/TestResults/**/coverage.cobertura.xml" -targetdir:"coverage" -reporttypes:Html;HtmlSummary
 
-Outputs the report to a folder called coverage/
 
-Generates both detailed (Html) and summary (HtmlSummary) reports
+Reads coverage results from all test projects under tests/
 
-4️⃣ View the coverage report
+Outputs reports to a folder named coverage/
 
-After generation, open the report in your browser:
+Generates both detailed (Html) and summary (HtmlSummary) views
+
+Open the coverage report
 
 .\coverage\index.html
 
-You’ll see line-coverage and branch-coverage percentages for each file, class, and method.
 
+Opens a visual coverage summary in your browser
 
-🧩 Notes
+📊 Notes
 
-Line Coverage = lines of code executed at least once
+Line Coverage → percentage of lines executed at least once
 
-Branch Coverage = both sides of if/else conditions executed
-
-Coverage data is stored automatically under tests/Todo.Api.Tests/TestResults/
-
-To increase branch coverage, add test cases for all alternate paths (e.g., invalid input, not-found scenarios).
+Branch Coverage → percentage of conditional branches (if/else) executed
 
 <img width="1337" height="678" alt="image" src="https://github.com/user-attachments/assets/35bb53fc-5c34-42fa-ad75-175177f661bd" />
 
