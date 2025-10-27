@@ -1,0 +1,9 @@
+{
+  "jsc": {
+    "target": "es2020",
+    "transform": {
+      "react": { "runtime": "automatic", "development": true }
+    }
+  },
+  "module": { "type": "commonjs" }
+}

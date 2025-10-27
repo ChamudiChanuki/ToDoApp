@@ -1,0 +1,42 @@
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      TZ: UTC
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todo_db
+      MYSQL_USER: todo_user
+      MYSQL_PASSWORD: todo_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 5s
+      timeout: 3s
+      retries: 25
+
+  backend:
+    build: ./backend
+    environment:
+      TZ: UTC
+      ASPNETCORE_URLS: http://+:5000
+      ConnectionStrings__Default: "Server=db;Port=3306;Database=todo_db;User=todo_user;Password=todo_pass;"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  db_data:
